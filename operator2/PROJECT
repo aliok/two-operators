@@ -8,8 +8,8 @@ layout:
 plugins:
   manifests.sdk.operatorframework.io/v2: {}
   scorecard.sdk.operatorframework.io/v2: {}
-projectName: operator1
-repo: github.com/aliok/two-operators/operator1
+projectName: operator2
+repo: github.com/aliok/two-operators/operator2
 resources:
 - api:
     crdVersion: v1
@@ -17,7 +17,7 @@ resources:
   controller: true
   domain: aliok
   group: test
-  kind: InstallationA
-  path: github.com/aliok/two-operators/operator1/api/v1alpha1
+  kind: InstallationB
+  path: github.com/aliok/two-operators/operator2/api/v1alpha1
   version: v1alpha1
 version: "3"

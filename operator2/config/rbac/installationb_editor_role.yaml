@@ -1,0 +1,31 @@
+# permissions for end users to edit installationbs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: installationb-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: operator2
+    app.kubernetes.io/part-of: operator2
+    app.kubernetes.io/managed-by: kustomize
+  name: installationb-editor-role
+rules:
+- apiGroups:
+  - test.aliok
+  resources:
+  - installationbs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - test.aliok
+  resources:
+  - installationbs/status
+  verbs:
+  - get

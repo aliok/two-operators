@@ -31,8 +31,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	testv1alpha1 "github.com/aliok/two-operators/operator1/api/v1alpha1"
-	"github.com/aliok/two-operators/operator1/controllers"
+	testv1alpha1 "github.com/aliok/two-operators/operator2/api/v1alpha1"
+	"github.com/aliok/two-operators/operator2/controllers"
 	//+kubebuilder:scaffold:imports
 )
 
@@ -71,7 +71,7 @@ func main() {
 		Port:                   9443,
 		HealthProbeBindAddress: probeAddr,
 		LeaderElection:         enableLeaderElection,
-		LeaderElectionID:       "703baf41.aliok",
+		LeaderElectionID:       "6d3baa88.aliok",
 		// LeaderElectionReleaseOnCancel defines if the leader should step down voluntarily
 		// when the Manager ends. This requires the binary to immediately end when the
 		// Manager is stopped, otherwise, this setting is unsafe. Setting this significantly
@@ -89,11 +89,11 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err = (&controllers.InstallationAReconciler{
+	if err = (&controllers.InstallationBReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
-		setupLog.Error(err, "unable to create controller", "controller", "InstallationA")
+		setupLog.Error(err, "unable to create controller", "controller", "InstallationB")
 		os.Exit(1)
 	}
 	//+kubebuilder:scaffold:builder

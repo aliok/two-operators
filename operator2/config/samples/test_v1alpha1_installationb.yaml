@@ -1,0 +1,12 @@
+apiVersion: test.aliok/v1alpha1
+kind: InstallationB
+metadata:
+  labels:
+    app.kubernetes.io/name: installationb
+    app.kubernetes.io/instance: installationb-sample
+    app.kubernetes.io/part-of: operator2
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: operator2
+  name: installationb-sample
+spec:
+  # TODO(user): Add fields here

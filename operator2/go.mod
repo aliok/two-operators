@@ -1,4 +1,4 @@
-module github.com/aliok/two-operators/operator1
+module github.com/aliok/two-operators/operator2
 
 go 1.19
 
