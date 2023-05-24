@@ -1,0 +1,10 @@
+properties:
+- type: olm.package.required
+  value:
+    packageName: operator1
+    versionRange: ">0.0.0"
+#- type: olm.gvk.required
+#  value:
+#    group: test.aliok
+#    kind: InstallationA
+#    version: v1alpha1
