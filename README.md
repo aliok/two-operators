@@ -35,6 +35,20 @@ make bundle-build bundle-push BUNDLE_IMG=docker.io/aliok/operator1-bundle:v0.0.1
 make catalog-build catalog-push CATALOG_IMG=docker.io/aliok/operator1-catalog:v0.0.1
 make bundle-build bundle-push catalog-build catalog-push
 
+kubectl apply -f - <<EOF
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  # Replace the version with whatever version you want to install
+  name: operator1-catalog
+  namespace: default
+spec:
+  displayName: operator1-catalog
+  image: docker.io/aliok/operator1-catalog:v0.0.1
+  publisher: aliok
+  sourceType: grpc
+EOF
+
 cd operator2
 make docker-build docker-push IMG="docker.io/aliok/operator2:v0.0.1"
 make bundle IMG="docker.io/aliok/operator2:v0.0.1"
