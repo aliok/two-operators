@@ -5,4 +5,4 @@ kind: Kustomization
 images:
 - name: controller
   newName: docker.io/aliok/operator2
-  newTag: latest
+  newTag: v0.0.1

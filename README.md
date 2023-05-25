@@ -1,3 +1,4 @@
+Commands to create two operators and install them in a cluster:
 ```shell
 mkdir operator1
 cd operator1
@@ -20,5 +21,24 @@ make bundle-build bundle-push BUNDLE_IMG="docker.io/aliok/operator2-bundle:lates
 operator-sdk olm install
 operator-sdk run bundle docker.io/aliok/operator2-bundle:latest
 kubectl apply -f config/samples/test_v1alpha1_installationb.yaml
+```
+
+Commands to test OLM dependency resolution:
+```shell
+operator-sdk cleanup operator1
+operator-sdk cleanup operator2
+
+cd operator1
+make docker-build docker-push IMG="docker.io/aliok/operator1:v0.0.1"
+make bundle IMG="docker.io/aliok/operator1:v0.0.1"
+make bundle-build bundle-push BUNDLE_IMG=docker.io/aliok/operator1-bundle:v0.0.1
+make catalog-build catalog-push CATALOG_IMG=docker.io/aliok/operator1-catalog:v0.0.1
+make bundle-build bundle-push catalog-build catalog-push
+
+cd operator2
+make docker-build docker-push IMG="docker.io/aliok/operator2:v0.0.1"
+make bundle IMG="docker.io/aliok/operator2:v0.0.1"
+make bundle-build bundle-push BUNDLE_IMG=docker.io/aliok/operator2-bundle:v0.0.1
+operator-sdk run bundle docker.io/aliok/operator2-bundle:v0.0.1
 
 ```
