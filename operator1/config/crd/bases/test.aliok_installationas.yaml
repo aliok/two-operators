@@ -35,13 +35,21 @@ spec:
           spec:
             description: InstallationASpec defines the desired state of InstallationA
             properties:
-              foo:
+              delay:
                 description: Foo is an example field of InstallationA. Edit installationa_types.go
                   to remove/update
-                type: string
+                type: integer
+            required:
+            - delay
             type: object
           status:
             description: InstallationAStatus defines the observed state of InstallationA
+            properties:
+              good:
+                type: boolean
+              start:
+                format: int64
+                type: integer
             type: object
         type: object
     served: true

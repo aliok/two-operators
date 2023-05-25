@@ -29,13 +29,16 @@ type InstallationASpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of InstallationA. Edit installationa_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Delay int `json:"delay"`
 }
 
 // InstallationAStatus defines the observed state of InstallationA
 type InstallationAStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+
+	Start int64 `json:"start,omitempty"`
+	Good  bool  `json:"good,omitempty"`
 }
 
 //+kubebuilder:object:root=true

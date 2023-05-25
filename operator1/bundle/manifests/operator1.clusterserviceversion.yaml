@@ -17,11 +17,13 @@ metadata:
             },
             "name": "installationa-sample"
           },
-          "spec": null
+          "spec": {
+            "delay": 20
+          }
         }
       ]
     capabilities: Basic Install
-    createdAt: "2023-05-25T07:39:51Z"
+    createdAt: "2023-05-25T16:04:27Z"
     operators.operatorframework.io/builder: operator-sdk-v1.28.1
     operators.operatorframework.io/project_layout: go.kubebuilder.io/v3
   name: operator1.v0.0.1
@@ -152,7 +154,7 @@ spec:
                 - --leader-elect
                 command:
                 - /manager
-                image: docker.io/aliok/operator1:v0.0.1
+                image: docker.io/aliok/operator1:latest
                 livenessProbe:
                   httpGet:
                     path: /healthz
