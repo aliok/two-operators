@@ -11,6 +11,7 @@ require (
 )
 
 require (
+	github.com/aliok/two-operators/operator1 v0.0.0-20230525134849-97d303530636 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
